@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>民宿</title>
+
+    <style>
+        #header {
+            position: absolute;
+            width: 100%;
+            height: 32px;
+            top: 0;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .nav li {
+            list-style: none;
+            display: inline;
+        }
+        
+        .nav a:link {
+            text-decoration: none;
+        }
+        
+        .nav a:hover {
+            color: lightblue;
+        }
+        
+        .list {
+            width: 1000px;
+            height: 20px;
+            margin-left: 300px;
+        }
+        
+        .nav li a {
+            width: 160px;
+            height: 80px;
+            text-align: center;
+            float: left;
+            line-height: 0px;
+            font-size: 20px;
+            color: white;
+        }
+        
+        #logo {
+            float: left;
+            margin-top: -15px;
+            margin-left: 50px;
+            display: block;
+        }
+        
+        #change-over-left {
+            left: 10px;
+            background: url('imgs/left.png') no-repeat;
+        }
+        
+        .change-over {
+            width: 60px;
+            height: 60px;
+            display: block;
+            cursor: pointer;
+            position: absolute;
+            z-index: 3;
+            top: 300px;
+        }
+        
+        #change-over-right {
+            right: 10px;
+            background: url('imgs/right.png') no-repeat;
+        }
+        
+        #gallery {
+            position: absolute;
+            width: 100%;
+            height: 637px;
+            top: 0;
+            overflow: hidden;
+        }
+        
+        .banner {
+            position: absolute;
+            width: 1920px;
+            height: 637px;
+            left: 50%;
+            margin-left: -960px;
+            bottom: 0;
+        }
+        
+        #hot {
+            position: absolute;
+            font-size: 35px;
+            margin-top: 700px;
+            margin-left: 180px;
+        }
+        
+        .hot-image {
+            position: absolute;
+            width: 1200px;
+            height: 300px;
+            margin-left: 180px;
+            margin-top: 800px;
+        }
+        
+        img {
+            margin: 20px;
+        }
+        
+        .hot-cover {
+            z-index: 1;
+            background-color: white;
+            opacity: 0.8;
+        }
+        
+        #hot-cover1 {
+            width: 180px;
+            height: 60px;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 1060px;
+        }
+        
+        #hot-cover2 {
+            width: 180px;
+            height: 60px;
+            position: absolute;
+            margin-left: 425px;
+            margin-top: 1060px;
+        }
+        
+        #hot-cover3 {
+            width: 180px;
+            height: 60px;
+            position: absolute;
+            margin-left: 649.5px;
+            margin-top: 1060px;
+        }
+        
+        #hot-cover4 {
+            width: 180px;
+            height: 60px;
+            position: absolute;
+            margin-left: 874.5px;
+            margin-top: 1060px;
+        }
+        
+        #hot-cover5 {
+            width: 180px;
+            height: 60px;
+            position: absolute;
+            margin-left: 1099.5px;
+            margin-top: 1060px;
+        }
+        
+        .hot-area-text1 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 60px;
+            margin-top: 13px;
+        }
+        
+        .hot-area-text2 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 60px;
+            margin-top: 13px;
+        }
+        
+        .hot-area-text3 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 60px;
+            margin-top: 13px;
+        }
+        
+        .hot-area-text4 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 60px;
+            margin-top: 13px;
+        }
+        
+        .hot-area-text5 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 60px;
+            margin-top: 13px;
+        }
+        
+        #boutique {
+            position: absolute;
+            font-size: 35px;
+            margin-top: 1200px;
+            margin-left: 180px;
+        }
+        
+        .boutique-image {
+            position: absolute;
+            width: 1200px;
+            height: 300px;
+            margin-left: 150px;
+            margin-top: 1300px;
+        }
+        
+        .boutique-cover {
+            z-index: 1;
+            background-color: white;
+            opacity: 0.8;
+        }
+        
+        #boutique-cover1 {
+            width: 550px;
+            height: 60px;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 1590px;
+        }
+        
+        #boutique-cover2 {
+            width: 550px;
+            height: 60px;
+            position: absolute;
+            margin-left: 765px;
+            margin-top: 1590px;
+        }
+        
+        #boutique-cover3 {
+            width: 550px;
+            height: 60px;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 1965px;
+        }
+        
+        #boutique-cover4 {
+            width: 550px;
+            height: 60px;
+            position: absolute;
+            margin-left: 765px;
+            margin-top: 1965px;
+        }
+        
+        .boutique-area-text1 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 13px;
+        }
+        
+        .boutique-area-text2 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 13px;
+        }
+        
+        .boutique-area-text3 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 13px;
+        }
+        
+        .boutique-area-text4 {
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: 13px;
+        }
+        /* 页脚 */
+        
+        .footer {
+            width: 100%;
+            height: 270px;
+            background-color: black;
+            position: absolute;
+            margin-top: 2100px;
+        }
+        
+        .footer-title1 {
+            font-size: 16px;
+            color: white;
+            margin-left: 40px;
+        }
+        
+        .footer-row1 {
+            float: left;
+            margin-left: 400px;
+            margin-top: 50px;
+        }
+        
+        .footer-row1 span {
+            font-size: 16px;
+        }
+        
+        .footer-row1 ul {
+            margin-top: 25px;
+        }
+        
+        .footer-row1 ul li {
+            line-height: 25px;
+            vertical-align: top;
+        }
+        
+        .footer-row1 ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .footer-title2 {
+            font-size: 16px;
+            color: white;
+            margin-left: 40px;
+        }
+        
+        .footer-row2 {
+            float: left;
+            margin-left: 400px;
+            margin-top: 50px;
+        }
+        
+        .footer-row2 span {
+            font-size: 16px;
+        }
+        
+        .footer-row2 ul {
+            margin-top: 25px;
+        }
+        
+        .footer-row2 ul li {
+            line-height: 25px;
+            vertical-align: top;
+        }
+        
+        .footer-row2 ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .remarks {
+            color: white;
+            margin-top: 240px;
+            margin-left: 660px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header" class="nav">
+        <div id="logo">
+            <img src="imgs/logo.png">
+        </div>
+        <div class="list">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">热门路线</a></li>
+                <li><a href="#">民宿预订</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="gallery">
+        <img class="banner" src="imgs/img1.jpeg">
+    </div>
+    <div class="container">
+        <span class="change-over" id="change-over-left"></span>
+        <span class="change-over" id="change-over-right"></span>
+    </div>
+    <!-- 热门地区 -->
+    <p id="hot">热门地区</p>
+    <div class="hot-area">
+
+        <div class="hot-image">
+            <img src="imgs/dali.png">
+            <img src="imgs/xihu.png">
+            <img src="imgs/sichuan.png">
+            <img src="imgs/yangshuo.png">
+            <img src="imgs/changsha.png">
+        </div>
+    </div>
+    <div class="hot-cover" id="hot-cover1">
+        <div class="hot-area-text1">大理</div>
+    </div>
+    <div class="hot-cover" id="hot-cover2">
+        <div class="hot-area-text2">西湖</div>
+    </div>
+    <div class="hot-cover" id="hot-cover3">
+        <div class="hot-area-text3">四川</div>
+    </div>
+    <div class="hot-cover" id="hot-cover4">
+        <div class="hot-area-text4">阳朔</div>
+
+    </div>
+    <div class="hot-cover" id="hot-cover5">
+        <div class="hot-area-text5">长沙</div>
+    </div>
+
+    <!-- 精品民宿 -->
+    <p id="boutique">精品民宿</p>
+    <div class="boutique-homestay">
+        <div class="boutique-image">
+            <img src="imgs/fensi.png">
+            <img src="imgs/xixia.png">
+            <img src="imgs/yuangui.png">
+            <img src="imgs/earth.png">
+        </div>
+    </div>
+    <div class="boutique-cover" id="boutique-cover1">
+        <div class="boutique-area-text1">大理双廊粉四酒店</div>
+    </div>
+    <div class="boutique-cover" id="boutique-cover2">
+        <div class="boutique-area-text2">杭州西湖夕霞小筑</div>
+    </div>
+    <div class="boutique-cover" id="boutique-cover3">
+        <div class="boutique-area-text3">四川成都远归客栈</div>
+    </div>
+    <div class="boutique-cover" id="boutique-cover4">
+        <div class="boutique-area-text4">长沙地球仓化酒店</div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="footer-row1">
+            <span class="footer-title1">关于我们</span>
+            <ul>
+                <li>
+                    <a href="#">联系我们</a>
+                </li>
+                <li>
+                    <a href="#">加入我们</a>
+                </li>
+                <li>
+                    <a href="#">退款政策</a>
+                </li>
+                <li>
+                    <a href="#">服务条款</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-row2">
+            <span class="footer-title2">关注我们</span>
+            <ul>
+                <li>
+                    <a href="#">新浪微博</a>
+                </li>
+                <li>
+                    <a href="#">民宿中心</a>
+                </li>
+                <li>
+                    <a href="#">帮助中心</a>
+                </li>
+                <li>
+                    <a href="#">用户反馈</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="remarks">2020-2021版权所有</div>
+    </div>
+</body>
+
+</html>
